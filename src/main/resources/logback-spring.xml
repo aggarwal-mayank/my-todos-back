@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+<!--    <include resource="org/springframework/boot/logging/logback/base.xml"/>-->
+<!--    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <encoder>-->
+<!--            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+<!--    <logger name="com.zaxxer.hikari.pool" level="DEBUG"/>-->
+
+    <!-- You can override this to have a custom pattern -->
+<!--    <property name="CONSOLE_LOG_PATTERN"-->
+<!--              value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(-&#45;&#45;){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>-->
+
+<!--    &lt;!&ndash; Appender to log to console &ndash;&gt;-->
+<!--    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--            &lt;!&ndash; Minimum logging level to be presented in the console logs&ndash;&gt;-->
+<!--            <level>DEBUG</level>-->
+<!--        </filter>-->
+<!--        <encoder>-->
+<!--            <pattern>${CONSOLE_LOG_PATTERN}</pattern>-->
+<!--            <charset>utf8</charset>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+<!--    <root level="INFO">-->
+<!--        <appender-ref ref="console"/>-->
+<!--    </root>-->
+
+    <include resource="org/springframework/cloud/gcp/autoconfigure/logging/logback-appender.xml" />
+    <include resource="org/springframework/cloud/gcp/autoconfigure/logging/logback-json-appender.xml" />
+    <root level="INFO">
+        <appender-ref ref="CONSOLE_JSON" />
+        <appender-ref ref="STACKDRIVER" />
+    </root>
+
+</configuration>

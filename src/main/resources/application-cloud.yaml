@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gcp:
+      sql:
+        enabled: true
+        instance-connection-name: my-kubernetes-248208:europe-west2:todos-db
+        database-name: todos
+      trace:
+        enabled: true
+  # Set the Spring Cloud Sleuth sample rate to 100% (1) so that we can
+  # view more results in Cloud Trace.
+  sleuth:
+    sampler:
+      probability: 1
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  datasource:
+    username: root
+    password: rootroot
